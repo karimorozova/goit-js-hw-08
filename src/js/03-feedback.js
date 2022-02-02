@@ -34,6 +34,9 @@ function fillInputsOfFeedbackForm() {
         
       email.value = savedData.email ?? "";
       message.value = savedData.message ?? "";
+    } else {
+        email.value = "";
+      message.value = "";
     }
 
   }

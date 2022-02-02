@@ -4,7 +4,12 @@ const iframe = document.querySelector('iframe');
     const player = new Vimeo.Player(iframe);
 
     const VIDEOPLAYER_CURRENT_TIME_KEY = "videoplayer-current-time";
-    const playbackPosition = localStorage.getItem(VIDEOPLAYER_CURRENT_TIME_KEY) ?? 0;
+    const playbackPositionFromStorage = localStorage.getItem(VIDEOPLAYER_CURRENT_TIME_KEY);
+    let playbackPosition = 0;
+
+    if(playbackPositionFromStorage) {
+        playbackPosition = playbackPositionFromStorage;
+    }
 
     player.on('timeupdate', throttle(timeUpdatePlayerHandler, 1000));
     player.setCurrentTime(playbackPosition);
