@@ -29,21 +29,12 @@ function onFormSubmit(event) {
 
 function fillInputsOfFeedbackForm() {
     const savedData = JSON.parse(localStorage.getItem(FORM_STATE_STORAGE_KEY));
-     if(savedData.email) {
-         email.value = savedData.email;
-    
-    }
-    if(savedData.message) {
-
-     message.value = savedData.message;
-   
-   } else {
-    email.value = '';
-    message.value = '';
+     savedData.email ? email.value = savedData.email : email.value = '';
+     savedData.message ? message.value = savedData.message : message.value = '';
 
    }
      
-  }
+
     
 
 
